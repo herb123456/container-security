@@ -21,6 +21,7 @@ script:
   - docker save container-security:${COMMIT} -o container-security-${COMMIT}.tar
   - trivy --exit-code 0 --severity HIGH --no-progress --input container-security-${COMMIT}.tar
   - trivy --exit-code 1 --severity CRITICAL --no-progress --input container-security-${COMMIT}.tar
+  - trivy --exit-code 0 --no-progress --input container-security-${COMMIT}.tar
   
 cache:
   directories:
